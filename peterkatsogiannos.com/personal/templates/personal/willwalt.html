@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% extends "personal/header.html" %}
+{% block content %}
+		<section id="main">
+
+			<div id="single">
+				<h3>WillWalt.com</h3>
+				<a href="http://www.willwalt.com" target="__blank"><img id="hero" src="/static/img/cat-websites.png"></a>
+			</div>
+
+			<div id="single">
+				<h4>Purpose & Strategy:</h4>
+				<p>I was employed by a local photographer in order to create a portfolio website for his startup career. I placed his photography as the design focus of the website, creating an animated version of his featured image with a loop of falling snow. </p>
+			</div>
+
+			<div id="single">
+				<h4>Process:</h4>
+				<p>After consulting with the client about which photographer portfolio's he liked and which aspects he'd like me to incorporate into his website, I decided that a minimalist approach with a major emphasis on his photography would best suit his goal.</p>
+				<p>Instead of doing a typical static hero image, I added a new twist by using Photoshop separate his favorite photo into multiple layers, which I could then animate and bring to life.</p>
+				<p>With the subject (the couple) and the flourish (the snow) now separated, I created two loop-able images of snow to place behind the subject, and infront.</p>
+<pre>
+.snow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  background-image:url("images/snowfront.png");
+  animation: animate-background linear 200s infinite;
+  z-index: 1;
+}
+
+.header{
+  background-position: center;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  height: 100vh;
+  background-image:url("images/back.jpg");
+  animation: animate-background linear 90s infinite;
+}
+
+@keyframes animate-background {
+   from { background-position: 0px 0px; }
+   to { background-position: 0px 2000px; }
+}
+</pre>
+				<p>The above css code is the crux of the animation, it simply loops the background image (the snow) over a div that is the size of the hero image, and then animates it so that the background image slowly moves downward.</p>
+				<p>Since the image is loop-able, it create a great snow effect. Adding a slower snowfall in the background, and a faster one in the foreground creates a sense of depth and life.</p>
+			</div>
+
+			<div id="single">
+				<h4>Conclusion:</h4>
+				<p>This was my first personal project I've done for a client outside of work, and I think it came out looking pretty good. It's a simple gallery with a CMS, but I'm proud of how I was able to use my knowledge of web development and photoshop to create something special using his work.</p>
+			</div>
+
+			<div id="single">
+				<h4>Technologies Used:</h4>
+				<div id="tech-list">
+					<a href="https://en.wikipedia.org/wiki/HTML5" target="__blank"><img src="/static/img/html.svg"></a>
+					<a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="__blank"><img src="/static/img/css.svg"></a>
+					<a href="https://en.wikipedia.org/wiki/PHP" target="__blank"><img src="/static/img/php.svg"></a>
+					<a href="https://en.wikipedia.org/wiki/JavaScript" target="__blank"><img src="/static/img/javascript.svg"></a>
+					<a href="https://en.wikipedia.org/wiki/JQuery" target="__blank"><img src="/static/img/jquery.svg"></a>
+					<a href="https://en.wikipedia.org/wiki/WordPress" target="__blank"><img src="/static/img/wordpress.svg"></a>
+					<a href="https://en.wikipedia.org/wiki/Adobe_Photoshop" target="__blank"><img src="/static/img/photoshop.svg"></a>
+				</div>
+			</div>
+
+		</section>		
+{% endblock %}

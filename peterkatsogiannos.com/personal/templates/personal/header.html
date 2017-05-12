@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% load staticfiles %}
+	<link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">  
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+
+<header>
+	
+	<div class="header-icons">
+		<a class="btn" data-tip="Projects" href="/projects"><img src="{% static 'img/projects.svg' %}"></a>
+		<a class="btn" data-tip="About" href="/about"><img src="{% static 'img/about.svg' %}"></a>
+		<a class="btn" data-tip="Contact" href="mailto:self@peterkatsogiannos.com"><img src="{% static 'img/mail.svg' %}"></a>
+	</div>
+	
+	<a href="/"><img id="me-icon" src="{% static 'img/me-icon.svg' %}"></a>
+	
+	<div class="header-icons">
+		<a class="btn" data-tip="Instagram" target="__blank" href="https://www.instagram.com/peterkatsogiannos/"><img src="{% static 'img/instagram.svg' %}"></a>
+		<a class="btn" data-tip="LinkedIn" target="__blank" href="https://www.linkedin.com/in/panagiotis-katsogiannos-36959813b/"><img src="{% static 'img/LinkedIn.svg' %}"></a>
+		<a class="btn" data-tip="Github" target="__blank" href="https://github.com/Peter-kts"><img src="{% static 'img/GitHub.svg' %}"></a>
+	</div>
+
+	<a id="menu-icon" onclick="NavMenu(); return false;" href="#"><img src="{% static 'img/menu.svg' %}"></a>
+
+</header> 
+
+<body>
+	   {% block content %}
+	   {% endblock %}
+</body>
+</html>		
+
+<script type="text/javascript">
+function NavMenu() {
+    var x = document.getElementsByClassName("header-icons");
+    var header = document.getElementsByTagName("header")[0];
+    var i;
+    for (i = 0; i < x.length; i++) {
+	    if (x[i].style.display === 'none' || !x[i].style.display) {
+	        x[i].style.display = 'block';
+	        header.style.position = "fixed";
+	        header.style.backgroundColor = "#FFF";
+	    } else {
+	        x[i].style.display = 'none';
+	        header.style.position = "static";
+	        header.style.backgroundColor = "transparent";
+	    }
+	}
+}
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% extends "personal/header.html" %}
+{% block content %}
+		<section id="main">
+
+			<div id="single">
+				<h3>Arcade Bot</h3>
+				<img id="hero" src="/static/img/cat-programming.png">
+			</div>
+
+			<div id="single">
+				<h4>Purpose & Strategy:</h4>
+				<p>This is a personal project I came up with while visiting a local Barcade, the basic idea is to create a simple AI using Python that can play a video game. The game I chose for the AI to play is X-Men the arcade game.</p>
+				<p>There are a couple of reasons for this choice; first, it's an extremely simple game, making it relatively easy to develop an AI for. Second, its graphics are sprite-based, meaning that there are a lot of constants I can take advantage of, and third I just really enjoyed playing this game as a kid.</p>
+			</div>
+
+			<div id="single">
+				<h4>Process:</h4>
+				<p>The game consists of a player controlling a character that can move in a total of four directions, has a total of approximately 5 enemy types, and there's only one button to attack. The first step I figured would be to find out if there was a way I could attain access to the MAME emulator engine itself, that way I could just pull the location of the players and enemies directly from the engine.</p>
+				<p><img src="/static/img/x-men-target.png"></p>
+				<p>Unfortunate for me, this is not possible. Meaning I have to use the PyAutoGUI module for Python to take screenshots of the game screen at fixed intervals, and then use the same module to analyze them and find the characters based on their <a href="https://en.wikipedia.org/wiki/Sprite_(computer_graphics)" target="__blank">sprite</a></p>
+<pre>
+>>> import pyautogui
+>>> x, y = pyautogui.locateCenterOnScreen('cyclops.png')
+</pre>
+				<p>This returns the center location of any Cyclops sprite found on the screen. Since, due to the nature of the game, there will only ever be one Cyclops at a time, this is pretty simple.</p>
+				<p>Next, after doing the same process to determine the location of the enemy sprites, I'll have to find a way to compare their two positions. To determine how close they are to one another I'll use the <a href="http://www.purplemath.com/modules/distform.htm" target="__blank"> Distance Formula</a>, then I'll have Python use PyAutoGUI to press the corresponsing movement keys in order to make the Cyclops sprite move toward the closest aquired enemy location.  </p>
+<pre>
+>>> pyautogui.keyDown('right')
+</pre>
+				<p>Once the distance between the Cyclops sprite and the enemy sprite is small enough, I'll have PyAutoGUI press the attack button, once the aquired enemy ceases to appear on the screen, the "AI" will aquire the next closest target until there are none left on the screen. At which point it will move Cyclops right to continue the game.</p>
+			</div>
+
+			<div id="single">
+				<h4>Conclusion:</h4>
+				<p>This project is still a work in progress, there are many bugs I have to work out due to how I chose to aquire targets, and the "AI" is extremely simple at this point. There is more to the game then just attacking the next target, and hopefully once I have enough time I can work this out to be a really competent AI, Perhaps in the future I can pair it with Python's GUI module and create an interface where the player can select what character they want controlled by the AI, or even expand into other arcade games. I love working on this project but at the moment it's taking a back seat to my more urgent ones.</p>
+			</div>
+
+			<div id="single">
+				<h4>Technologies Used:</h4>
+				<div id="tech-list">
+					<a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="__blank"><img src="/static/img/python.svg"></a>
+				</div>
+			</div>
+
+		</section>
+{% endblock %}

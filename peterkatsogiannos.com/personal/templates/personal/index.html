@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends "personal/header.html" %}
+{% block content %}
+
+<style type="text/css">
+#me-icon {
+	display: none;
+}
+</style>
+
+		<section id="main">
+
+			<div id="single">
+				<h3>About My Site</h3>
+				<a href="http://www.willwalt.com" target="__blank"><img id="hero" src="/static/img/me-icon.svg"></a>
+			</div>
+
+			<div id="single">
+				<h4>Purpose & Strategy:</h4>
+				<p>I needed a website to showcase my work, and to define who I am as a programmer / person. The plan was to make it different and have a certain style to it, but not Avant Garde to the point that it ruins user experience.</p> <p>I tried to avoid over-doing effects and interactive "games" because I figured any visitors would just find them annoying, and wouldn't actually add to the website in a meaningful way. I had to come up with something that was functional, but different. </p>
+			</div>
+
+			<div id="single">
+				<h4>Process:</h4>
+				<p>First, I started off by trying to think outside the box; I went through about three designs for the homepage. The idea I had was a controllable character (using the arrow keys) that could interact with the website in some way.</p>
+				<p>It was a simple easter egg where the character could punch a heavy bag, then it was a Mario-esque running mini-game where the user navigated through the menu by jumping and hitting the corresponding menu item. However, this wasn't really a great idea. For one, It was a lot of work for very little benefit, for a feature most people would not even notice or use. Second, it wouldn't even work on mobile; unless I created virtual keys for the mobile user to press, while doing this mini-game would be great as a side project; I don't think it had any place on the homepage of my personal website.</p>
+				<p>After going through those designs, I decided on something simple, emulating the ever-popular google flat style, but also putting a twist on it. I tried to think of shapes, colors, styles that weren't in many websites. All of a sudden it clicked and I quickly drew up a loose framework for this site, using octogons, hexagons, and vertical text. What you see before you is the end result.</p>
+				<p>The site uses a <a href="https://en.wikipedia.org/wiki/Django_(web_framework)" target="__blank">Django</a> backend that runs off of <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="__blank">Python</a>. Due to the fact that I'm the only person who will be editing the site, it doesn't need an intense content management system. Django serves all the purposes I need, and will make it easy if I ever want to expand and create a blog.</p>
+			</div>
+
+			<div id="single">
+				<h4>Conclusion:</h4>
+				<p>I am content with the website I've created, while it does not have extremely flashy effects or showcase the apex of my programming skills, I feel it doesn't need to. Over designing and forcing in needless effects can often lead to the opposite of the desired outcome. Instead of creating a beautiful design with seamless UX and UI, it might just weigh the site down, make it slow, clunky and confusing to use. The last thing I want when someone visits a site I've made is for them to not know how to navigate it.</p>
+			</div>
+
+			<div id="single">
+				<h4>Technologies Used:</h4>
+				<div id="tech-list">
+					<a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="__blank"><img src="/static/img/python.svg"></a>
+					<a href="https://en.wikipedia.org/wiki/Django_(web_framework)" target="__blank"><img src="/static/img/django.svg"></a>
+				</div>
+			</div>
+		</section>		
+{% endblock %}
